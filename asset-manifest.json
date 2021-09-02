@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/reactGallery/static/css/main.4cb0a05e.chunk.css",
+    "main.js": "/reactGallery/static/js/main.7e59eb7e.chunk.js",
+    "main.js.map": "/reactGallery/static/js/main.7e59eb7e.chunk.js.map",
+    "runtime-main.js": "/reactGallery/static/js/runtime-main.0e736850.js",
+    "runtime-main.js.map": "/reactGallery/static/js/runtime-main.0e736850.js.map",
+    "static/js/2.54dd9818.chunk.js": "/reactGallery/static/js/2.54dd9818.chunk.js",
+    "static/js/2.54dd9818.chunk.js.map": "/reactGallery/static/js/2.54dd9818.chunk.js.map",
+    "static/js/3.644e427a.chunk.js": "/reactGallery/static/js/3.644e427a.chunk.js",
+    "static/js/3.644e427a.chunk.js.map": "/reactGallery/static/js/3.644e427a.chunk.js.map",
+    "index.html": "/reactGallery/index.html",
+    "service-worker.js": "/reactGallery/service-worker.js",
+    "service-worker.js.map": "/reactGallery/service-worker.js.map",
+    "static/css/main.4cb0a05e.chunk.css.map": "/reactGallery/static/css/main.4cb0a05e.chunk.css.map",
+    "static/js/2.54dd9818.chunk.js.LICENSE.txt": "/reactGallery/static/js/2.54dd9818.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e736850.js",
+    "static/js/2.54dd9818.chunk.js",
+    "static/css/main.4cb0a05e.chunk.css",
+    "static/js/main.7e59eb7e.chunk.js"
+  ]
+}
