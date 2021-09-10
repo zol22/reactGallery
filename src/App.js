@@ -105,7 +105,7 @@ componentDidMount() {
           { this.state.error ? <p> Not found...</p> : 
             this.state.loading ? <p>Loading images...</p> : 
           (<Switch>
-            <Route exact path="/reactGallery/" component={ () => <Redirect to="/cats" />}/>
+            <Route exact path="/" component={ () => <Redirect to="/cats" />}/>
             <Route exact path="/cats" render={ () => <PhotoContainer data={this.state.cats}/>} />
             <Route exact path="/dogs" render={ () => <PhotoContainer data={this.state.dogs}/>} />
             <Route exact path="/cars" render={ () => <PhotoContainer data={this.state.cars}/>} />
