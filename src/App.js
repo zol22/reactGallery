@@ -20,7 +20,8 @@ class App extends Component {
     dogs: [],
     cars: [],
     title: "",
-    loading: true // Show/Hide loading text between get requests.
+    loading: false, // Show/Hide loading text between get requests.
+    error:false
   }
 
   /* Perform a Search with the query typed by the user */
@@ -30,10 +31,12 @@ class App extends Component {
     .then( res => this.setState({
       photos: res.data.photos.photo,
       title:query,
-      loading:false
+      loading:false,
+      error:false
     }))
     .catch(error => {
-    console.log('Error fetching in parsing data', error)
+      this.setState({error:true});
+      console.log('Error fetching in parsing data', error)
     } );
    
 }
@@ -47,36 +50,45 @@ componentDidMount() {
 
   /* Fetch Cats */ 
   catsResults = ( query = "cats" ) => {
+    this.setState({loading:true})
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
         .then( res => this.setState({
           cats: res.data.photos.photo,
-          loading:false
+          loading:false,
+          error:false
         }))
         .catch(error => {
+          this.setState({error:true})
         console.log('Error fetching in parsing data', error)
         } );
   }
 
   /* Fetch dogs */
   dogsResult = (query = "dogs") => {
+    this.setState({loading:true})
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then( res => this.setState({
         dogs: res.data.photos.photo,
-        loading:false
+        loading:false,
+        error:false
       }))
       .catch(error => {
+        this.setState({error:true})
       console.log('Error fetching in parsing data', error)
       } );
   }
 
   /* Fetch cars */
   carsResults = ( query = "cars" ) => {
+    this.setState({loading:true})
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then( res => this.setState({
       cars: res.data.photos.photo,
-      loading:false
+      loading:false,
+      error:false
     }))
     .catch(error => {
+      this.setState({error:true})
     console.log('Error fetching in parsing data', error)
     } );
   }
@@ -89,7 +101,9 @@ componentDidMount() {
         
           <SearchForm onSearch={this.performSearch} />
           <Nav />
-          { this.state.loading ? <p>Loading images...</p> : 
+          {/* two if conditions */}
+          { this.state.error ? <p> Not found...</p> : 
+            this.state.loading ? <p>Loading images...</p> : 
           (<Switch>
             <Route exact path="/" component={ () => <Redirect to="/cats" />}/>
             <Route exact path="/cats" render={ () => <PhotoContainer data={this.state.cats}/>} />
