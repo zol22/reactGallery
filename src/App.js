@@ -10,7 +10,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import axios from 'axios';
-import apiKey from './config';
+//import apiKey from './config';
 
 class App extends Component {
 
