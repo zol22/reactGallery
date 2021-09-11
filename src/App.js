@@ -49,7 +49,7 @@ componentDidMount() {
 }
 
   /* Fetch Cats */ 
-  catsResults = ( query = "cats" ) => {
+  catsResults = ( query = "ball" ) => {
     this.setState({loading:true})
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
         .then( res => this.setState({
@@ -105,8 +105,8 @@ componentDidMount() {
           { this.state.error ? <p> Not found...</p> : 
             this.state.loading ? <p>Loading images...</p> : 
           (<Switch>
-            <Route exact path='/' component={ () => <Redirect to="/cats" />}/>
-            <Route exact path="/cats" render={ () => <PhotoContainer data={this.state.cats}/>} />
+            <Route exact path='/' component={ () => <Redirect to="/ball" />}/>
+            <Route exact path="/ball" render={ () => <PhotoContainer data={this.state.cats}/>} />
             <Route exact path="/dogs" render={ () => <PhotoContainer data={this.state.dogs}/>} />
             <Route exact path="/cars" render={ () => <PhotoContainer data={this.state.cars}/>} />
 
