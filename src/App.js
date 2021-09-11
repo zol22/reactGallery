@@ -27,7 +27,7 @@ class App extends Component {
   /* Perform a Search with the query typed by the user */
   performSearch = (query) => {
     this.setState({loading:true})
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then( res => this.setState({
       photos: res.data.photos.photo,
       title:query,
@@ -51,7 +51,7 @@ componentDidMount() {
   /* Fetch Cats */ 
   catsResults = ( query = "cats" ) => {
     this.setState({loading:true})
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
         .then( res => this.setState({
           cats: res.data.photos.photo,
           loading:false,
@@ -66,7 +66,7 @@ componentDidMount() {
   /* Fetch dogs */
   dogsResult = (query = "dogs") => {
     this.setState({loading:true})
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then( res => this.setState({
         dogs: res.data.photos.photo,
         loading:false,
@@ -81,7 +81,7 @@ componentDidMount() {
   /* Fetch cars */
   carsResults = ( query = "cars" ) => {
     this.setState({loading:true})
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then( res => this.setState({
       cars: res.data.photos.photo,
       loading:false,
